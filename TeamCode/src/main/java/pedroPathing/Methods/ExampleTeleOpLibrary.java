@@ -1,22 +1,26 @@
-package pedroPathing.constants;
+package pedroPathing.Methods;
 
-import static pedroPathing.constants.ExampleAlgorithmLibrary.*;
-import static com.pedropathing.BotFactory.Action.*;
-
+import static pedroPathing.Hardware.*;
+import static pedroPathing.States.*;
 import com.pedropathing.follower.Follower;
 
 public class ExampleTeleOpLibrary {
-    private static Follower follower;
     public static Thread AutoPilotThread;
     public static Runnable AutoPilot(Follower Originfollower){
         follower.breakFollowing();
         follower = Originfollower;
         AutoPilotThread = new Thread(() -> {
-            while (!gamepad.left_stick_x.justPressed()) {
-
+            /*Write your autopilot init code here*/
+            AutoPilotIsRunning=true;
+            while (!gamepad.left_stick_x.justStartUsed()&&!RequestAutoPilotStop) {
+                /*Write your loop code here*/
+                gamepad.update();
             }
-            follower.breakFollowing();
-            follower.startTeleopDrive();
+            synchronized (lock) {
+                follower.breakFollowing();
+                follower.startTeleopDrive();
+                AutoPilotIsRunning=false;
+            }
         });
         AutoPilotThread.start();
         return null;
@@ -152,4 +156,5 @@ public class ExampleTeleOpLibrary {
         Touchpad_finger_1();
         Touchpad_finger_2();
     }
+    private ExampleTeleOpLibrary(){}
 }

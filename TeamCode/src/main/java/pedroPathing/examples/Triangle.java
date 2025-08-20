@@ -58,7 +58,7 @@ public class Triangle extends OpMode {
      */
     @Override
     public void init() {
-        follower = new Follower(hardwareMap, FConstants.class, LConstants.class);
+        follower = Follower.getInstance(hardwareMap, FConstants.class, LConstants.class);
         follower.setStartingPose(startPose);
 
         triangle = follower.pathBuilder()
