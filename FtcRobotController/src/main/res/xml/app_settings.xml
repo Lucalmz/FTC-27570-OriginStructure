@@ -88,6 +88,12 @@ See https://developer.android.com/guide/topics/ui/settings.html
         android:targetClass="com.qualcomm.ftccommon.ViewLogsActivity" />
     </PreferenceScreen>
 
+    <PreferenceScreen
+        android:title="What are you fucking doing?"
+        android:summary="Fuck off or fuck you"
+        android:key="BULL SHIT!"
+        />
+
   </PreferenceCategory>
 
 </PreferenceScreen>

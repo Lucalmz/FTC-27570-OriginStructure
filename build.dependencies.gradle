@@ -18,7 +18,7 @@ dependencies {
     implementation 'org.firstinspires.ftc:FtcCommon:10.3.0'
     implementation 'org.firstinspires.ftc:Vision:10.3.0'
     implementation 'io.github.bear27570:pedro:1.0.9.1'
-    implementation 'io.github.bear27570:Yuan:1.0.1'
+    implementation 'io.github.bear27570:Yuan:1.0.2'
 
     //noinspection GradleDependency
     implementation 'androidx.appcompat:appcompat:1.2.0'
